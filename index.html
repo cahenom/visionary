@@ -320,6 +320,7 @@
       }
     }
 
+    /* Welcome Screen Styles - DIPERBAIKI */
     #welcome-screen {
       position: fixed;
       top: 0; left: 0;
@@ -334,44 +335,63 @@
       transition: opacity 1s ease;
     }
 
-    /* Teks Ngetik Welcome Screen - diperbaiki untuk mobile */
-    .typing {
+    /* PERBAIKAN UTAMA: Animasi typing welcome yang tidak mengulang */
+    .welcome-typing {
       font-size: 1.25rem;
       text-align: center;
       padding: 0 20px;
       border-right: 3px solid rgba(255,255,255,0.75);
-      animation: typing 2.5s steps(28, end), blink 0.7s step-end infinite;
       max-width: 90%;
       overflow: hidden;
-      display: inline-block;
       white-space: nowrap;
       
-      /* Hitung tepat sesuai karakter "PT Visionary Digital Indonesia" = 28 karakter */
-      width: 0; /* Mulai dari 0, akan di-animate */
+      /* Animasi CSS hanya berjalan sekali */
+      animation: 
+        welcomeTyping 3s steps(28, end) forwards,
+        welcomeBlink 0.7s step-end 4.3s 3 forwards;
+      
+      /* Set initial state */
+      width: 0;
     }
 
     @media (min-width: 768px) {
-      .typing {
+      .welcome-typing {
         font-size: 2rem;
       }
     }
 
     /* Mobile specific */
     @media (max-width: 480px) {
-      .typing {
+      .welcome-typing {
         font-size: 1.1rem;
         padding: 0 15px;
       }
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 28ch } /* Tepat 28 karakter sesuai panjang text */
+    /* Animasi typing sekali saja */
+    @keyframes welcomeTyping {
+      from { 
+        width: 0;
+      }
+      to { 
+        width: 28ch; /* Tepat 28 karakter "PT Visionary Digital Indonesia" */
+      }
     }
 
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: rgba(255,255,255,0.75) }
+    /* Animasi blink hanya beberapa kali setelah selesai typing */
+    @keyframes welcomeBlink {
+      from, to { 
+        border-color: transparent;
+      }
+      50% { 
+        border-color: rgba(255,255,255,0.75);
+      }
+    }
+
+    /* Setelah animasi selesai, hilangkan border */
+    .welcome-typing.finished {
+      border-right: none;
+      animation: none;
     }
 
     /* Loading optimization */
@@ -395,8 +415,7 @@
       outline: 2px solid #4f46e5;
       outline-offset: 2px;
     }
-
-</style>
+  </style>
 </head>
 <body>
 
@@ -491,51 +510,346 @@
         </div>
       </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-indigo-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Tentang Kami</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+              PT Visionary Digital Indonesia adalah perusahaan teknologi yang berfokus pada penyediaan solusi pembayaran digital dan topup game. Kami berkomitmen untuk memberikan layanan terbaik dengan teknologi terkini.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Dengan pengalaman lebih dari 5 tahun di industri digital, kami telah melayani ribuan pelanggan dengan berbagai kebutuhan transaksi digital mereka.
+            </p>
+          </div>
+          <div class="md:w-1/2 relative" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Tim Visionary Digital Indonesia" 
+                 class="rounded-3xl shadow-2xl w-full lazy-img" 
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12" data-aos="fade-up">Apa Kata Pelanggan Kami</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="100">
+            <div class="flex justify-center mb-4">
+              <i class="fas fa-quote-left text-indigo-500 text-2xl"></i>
+            </div>
+            <p class="text-gray-600 mb-6">"Layanan topup game sangat cepat dan harga kompetitif. Sudah langganan sejak 2020!"</p>
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">A</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Andi Wijaya</h4>
+                <p class="text-sm text-gray-500">Pengguna Maktopup</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="200">
+            <div class="flex justify-center mb-4">
+              <i class="fas fa-quote-left text-indigo-500 text-2xl"></i>
+            </div>
+            <p class="text-gray-600 mb-6">"Transaksi pulsa sangat mudah dan cepat. Sistem H2H-nya sangat membantu bisnis saya."</p>
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">S</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Siti Rahma</h4>
+                <p class="text-sm text-gray-500">Pengguna Pulsa.cc</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="300">
+            <div class="flex justify-center mb-4">
+              <i class="fas fa-quote-left text-indigo-500 text-2xl"></i>
+            </div>
+            <p class="text-gray-600 mb-6">"CS sangat responsif dan membantu ketika ada kendala. Recommended banget!"</p>
+            <div class="flex items-center justify-center space-x-3">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">B</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Budi Santoso</h4>
+                <p class="text-sm text-gray-500">Pengguna Kedua Layanan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-indigo-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">Hubungi Kami</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Kami siap membantu Anda 24/7. Silakan isi form berikut atau hubungi kami langsung.</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <form class="bg-white p-8 rounded-2xl shadow-md">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+              </div>
+              
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+              </div>
+              
+              <div class="mb-6">
+                <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
+                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+              </div>
+              
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full">Kirim Pesan</button>
+            </form>
+          </div>
+          
+          <div class="md:w-1/2" data-aos="fade-left">
+            <div class="bg-white p-8 rounded-2xl shadow-md h-full">
+              <h3 class="text-xl font-bold text-gray-900 mb-6">Informasi Kontak</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="bg-indigo-100 p-3 rounded-full">
+                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Alamat Kantor</h4>
+                    <p class="text-gray-600">Sidomulyo, SP2, Blok B.T, Kec. Muara Lakitan, Kab. Musi Rawas, Sumatra Selatan</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="bg-indigo-100 p-3 rounded-full">
+                    <i class="fas fa-phone-alt text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Telepon</h4>
+                    <p class="text-gray-600">0851-7992-1771</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="bg-indigo-100 p-3 rounded-full">
+                    <i class="fas fa-envelope text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Email</h4>
+                    <p class="text-gray-600">admin@visionarydigital.my.id</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="bg-indigo-100 p-3 rounded-full">
+                    <i class="fas fa-clock text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
+                    <p class="text-gray-600">Senin - Minggu: 24 Jam</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-8">
+                <h4 class="font-semibold text-gray-800 mb-4">Ikuti Kami</h4>
+                <div class="flex space-x-4">
+                  <a href="#" class="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" class="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="#" class="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Contact Info -->
-  <section id="contact" class="bg-indigo-50 py-12 border-t border-gray-200" data-aos="fade-up">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
-      <div class="flex items-center justify-center sm:justify-start space-x-4">
-        <i class="fas fa-map-marker-alt text-indigo-600 text-2xl"></i>
-        <address class="text-gray-700 not-italic">
-          Sidomulyo, SP2, Blok B.T,<br>
-          Kec. Muara Lakitan, Kab. Musi Rawas,<br>
-          Sumatra Selatan, Indonesia
-        </address>
+  <!-- FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">Pertanyaan yang Sering Diajukan</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Temukan jawaban untuk pertanyaan umum tentang layanan kami.</p>
       </div>
-      <div class="flex items-center justify-center sm:justify-start space-x-4">
-        <i class="fas fa-phone-alt text-indigo-600 text-2xl"></i>
-        <a href="tel:085179921771" class="text-gray-700 hover:text-indigo-600 transition-colors">0851-7992-1771</a>
-      </div>
-      <div class="flex items-center justify-center sm:justify-start space-x-4">
-        <i class="fas fa-envelope text-indigo-600 text-2xl"></i>
-        <a href="mailto:admin@visionarydigital.my.id" class="text-gray-700 hover:text-indigo-600 transition-colors">admin@visionarydigital.my.id</a>
+      
+      <div class="max-w-3xl mx-auto space-y-4">
+        <div class="border border-gray-200 rounded-xl overflow-hidden" data-aos="fade-up">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="font-semibold text-gray-800">Bagaimana cara melakukan topup game di Maktopup?</h3>
+            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 pb-6 hidden">
+            <p class="text-gray-600">Anda cukup mengunjungi website Maktopup.com, memilih game yang ingin di-topup, memasukkan ID game, memilih nominal, dan melakukan pembayaran. Proses biasanya selesai dalam 1-5 menit.</p>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="font-semibold text-gray-800">Apa keunggulan sistem H2H di Pulsa.cc?</h3>
+            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 pb-6 hidden">
+            <p class="text-gray-600">Sistem Host to Host (H2H) kami memungkinkan transaksi pulsa langsung antara server kami dengan server provider tanpa perantara, sehingga proses lebih cepat (biasanya dalam hitungan detik) dan harga lebih kompetitif.</p>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="font-semibold text-gray-800">Metode pembayaran apa saja yang tersedia?</h3>
+            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 pb-6 hidden">
+            <p class="text-gray-600">Kami menerima berbagai metode pembayaran termasuk transfer bank (BCA, BRI, BNI, Mandiri), e-wallet (OVO, Dana, Gopay, ShopeePay), dan minimarket (Alfamart, Indomaret).</p>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="font-semibold text-gray-800">Bagaimana jika transaksi gagal tetapi dana sudah terpotong?</h3>
+            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 pb-6 hidden">
+            <p class="text-gray-600">Silakan hubungi tim CS kami melalui live chat atau WhatsApp dengan menyertakan bukti transfer. Kami akan memproses refund maksimal 1x24 jam atau melanjutkan transaksi sesuai keinginan Anda.</p>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="font-semibold text-gray-800">Apakah ada program reseller/agen?</h3>
+            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 pb-6 hidden">
+            <p class="text-gray-600">Ya, kami memiliki program reseller dengan berbagai keuntungan seperti harga khusus, dashboard monitoring, dan bonus bulanan. Silakan hubungi kami untuk informasi lebih lanjut.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-indigo-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6" data-aos="fade-up">Siap Memulai dengan Layanan Kami?</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Bergabunglah dengan ribuan pelanggan yang telah mempercayakan kebutuhan digital mereka kepada kami.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://maktopup.com" class="btn-primary bg-white text-indigo-600 hover:bg-gray-100">Kunjungi Maktopup</a>
+        <a href="https://pulsa.cc" class="btn-secondary border-white text-white hover:bg-white hover:text-indigo-600">Kunjungi Pulsa.cc</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 py-8 mt-20 select-none relative z-10">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-      <p>© <span id="current-year">2024</span> PT Visionary Digital Indonesia. All rights reserved.</p>
-      <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="#" aria-label="Facebook" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-facebook-f fa-lg"></i></a>
-        <a href="#" aria-label="Twitter" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-twitter fa-lg"></i></a>
-        <a href="#" aria-label="Instagram" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-instagram fa-lg"></i></a>
-        <a href="#" aria-label="LinkedIn" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-linkedin-in fa-lg"></i></a>
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="#home" class="flex items-center space-x-3 mb-6">
+            <div class="w-10 h-10 rounded-md shadow-md bg-indigo-600 flex items-center justify-center text-white font-bold">V</div>
+            <span class="text-lg font-extrabold text-white">PT Visionary Digital Indonesia</span>
+          </a>
+          <p class="mb-4">Solusi profesional untuk topup game dan host to host H2H terbaik di Indonesia.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Layanan</h3>
+          <ul class="space-y-2">
+            <li><a href="https://maktopup.com" class="hover:text-white transition">Maktopup.com</a></li>
+            <li><a href="https://pulsa.cc" class="hover:text-white transition">Pulsa.cc</a></li>
+            <li><a href="#" class="hover:text-white transition">API Integration</a></li>
+            <li><a href="#" class="hover:text-white transition">Reseller Program</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Perusahaan</h3>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
+            <li><a href="#" class="hover:text-white transition">Tim Kami</a></li>
+            <li><a href="#" class="hover:text-white transition">Karir</a></li>
+            <li><a href="#" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
+            <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
+            <li><a href="#" class="hover:text-white transition">Kebijakan Cookie</a></li>
+            <li><a href="#" class="hover:text-white transition">Kebijakan Pengembalian</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p>© <span id="current-year">2024</span> PT Visionary Digital Indonesia. All rights reserved.</p>
+        <div class="mt-4 md:mt-0">
+          <img src="https://via.placeholder.com/200x50?text=Payment+Methods" alt="Payment Methods" class="h-8 lazy-img" loading="lazy">
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Layar Welcome -->
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6285179921771" 
+     class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-50"
+     aria-label="Hubungi kami via WhatsApp">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" 
+          class="fixed bottom-6 right-24 bg-indigo-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition z-50 hidden"
+          aria-label="Kembali ke atas">
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+
+  <!-- Welcome Screen -->
   <div id="welcome-screen">
-    <div class="typing">PT Visionary Digital Indonesia</div>
+    <div class="welcome-typing">PT Visionary Digital Indonesia</div>
   </div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+    // Initialize AOS animation
+    AOS.init({
+      once: false,
+      duration: 800,
+      easing: 'ease-in-out-quad'
+    });
+
     // Mobile menu toggle
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -564,13 +878,6 @@
       } else {
         header.classList.remove("scrolled");
       }
-    });
-
-    // AOS init
-    AOS.init({
-      once: false,
-      duration: 800,
-      easing: 'ease-in-out-quad'
     });
 
     // Particle background
@@ -639,14 +946,10 @@
     }
     animateParticles();
 
-    // Animasi ngetik welcome screen
-    const welcomeTyping = document.querySelector('.typing');
-    welcomeTyping.style.width = '0'; // Pastikan dimulai dari width 0
-
-    // Animasi ngetik hero section
+    // Typing animation for hero section
     const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
     const typingElement = document.getElementById('typing-title');
-    typingElement.textContent = ''; // Pastikan kosong di awal
+    typingElement.textContent = ''; // Ensure empty at start
     
     let typingIndex = 0;
     let typingSpeed = 80;
@@ -663,49 +966,142 @@
     }
 
     // Lazy loading images
-    function lazyLoadImages() {
-      const lazyImages = document.querySelectorAll('.lazy-img');
-      
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src || img.src;
-            img.classList.add('loaded');
-            observer.unobserve(img);
-          }
-        });
+    const lazyImages = document.querySelectorAll('.lazy-img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.getAttribute('data-src') || img.src;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
       });
-
-      lazyImages.forEach(img => {
-        imageObserver.observe(img);
-      });
-    }
-
-    // Update current year in footer
-    function updateCurrentYear() {
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-    }
-
-    // Initialize all functions when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      // Hide welcome screen after animation
-      setTimeout(() => {
-        const welcome = document.getElementById("welcome-screen");
-        welcome.style.opacity = "0";
-        document.body.style.overflow = "auto";
-        setTimeout(() => {
-          welcome.style.display = "none";
-          // Start typing animation after welcome screen is hidden
-          typeHeroText();
-        }, 1000);
-      }, 3500);
-
-      // Initialize other functions
-      lazyLoadImages();
-      updateCurrentYear();
+    }, {
+      rootMargin: '0px 0px 100px 0px'
     });
 
+    lazyImages.forEach(img => {
+      imageObserver.observe(img);
+    });
+
+    // Welcome screen animation
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const welcomeText = document.querySelector('.welcome-typing');
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // After welcome typing animation completes
+    setTimeout(() => {
+      welcomeText.classList.add('finished');
+      setTimeout(() => {
+        welcomeScreen.classList.add('loading-hidden');
+        setTimeout(() => {
+          welcomeScreen.style.display = 'none';
+          // Start hero typing animation after welcome screen is hidden
+          typeHeroText();
+        }, 500);
+      }, 1500);
+    }, 3500); // Match this with the typing animation duration
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href')) {
+          if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+
+    // FAQ Toggle functionality
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        
+        content.classList.toggle('hidden');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+      });
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('hidden');
+      } else {
+        backToTopButton.classList.add('hidden');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form submission handling
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        
+        // Here you would typically send the data to a server
+        console.log('Form submitted:', { name, email, phone, message });
+        
+        // Show success message
+        alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+        
+        // Reset form
+        contactForm.reset();
+      });
+    }
   </script>
 </body>
 </html>
