@@ -312,34 +312,37 @@
       transition: opacity 1s ease;
     }
 
-    /* Teks Ngetik Welcome Screen */
-    .typing {
-      font-size: 1.5rem;
-      text-align: center;
-      padding: 0 20px;
-      overflow: hidden;
-      border-right: 3px solid rgba(255,255,255,0.75);
-      animation: typing 2.5s steps(25, end), blink 0.7s step-end infinite;
-      max-width: 90%;
-      word-wrap: break-word;
+    /* PERBAIKAN: Animasi ngetik dengan wrapping yang benar */
+  .typing-text {
+    border-right: 2px solid #4f46e5;
+    overflow: hidden;
+    display: inline-block; /* Tetap inline-block tapi dengan perbaikan */
+    animation: blink-caret 0.75s step-end infinite;
+    font-weight: 700;
+    color: #1e40af;
+    white-space: pre-wrap; /* Perubahan penting untuk mobile */
+    word-break: break-word; /* Memastikan kata bisa dipotong jika perlu */
+    line-height: 1.3;
+    min-height: 2.6em; /* Menyediakan ruang untuk 2 baris teks */
+  }
+  
+  /* Ukuran font responsif */
+  .typing-text {
+    font-size: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .typing-text {
+      font-size: 2.25rem;
+      white-space: nowrap; /* Di desktop, teks tidak wrap */
+      min-height: auto;
     }
+  }
 
-    @media (min-width: 768px) {
-      .typing {
-        font-size: 2rem;
-        white-space: nowrap;
-      }
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: rgba(255,255,255,0.75) }
-    }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4f46e5 }
+  }
 
   </style>
 </head>
@@ -577,24 +580,35 @@
     }
     animateParticles();
 
-    // PERBAIKAN: Animasi ngetik untuk judul hero dengan wrapping
-    const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
-    const typingElement = document.getElementById('typing-title');
-    let typingIndex = 0;
+  
+  // PERBAIKAN: Animasi ngetik yang lebih baik untuk mobile
+  const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
+  const typingElement = document.getElementById('typing-title');
+  let typingIndex = 0;
+  let isMobile = window.innerWidth < 768;
 
-    function type() {
-      if (typingIndex <= typingText.length) {
-        typingElement.textContent = typingText.slice(0, typingIndex);
-        typingIndex++;
-        setTimeout(type, 80);
-      }
+  function type() {
+    if (typingIndex <= typingText.length) {
+      typingElement.textContent = typingText.slice(0, typingIndex);
+      typingIndex++;
+      
+      // Untuk mobile, kurangi kecepatan sedikit
+      setTimeout(type, isMobile ? 100 : 80);
+    } else {
+      // Setelah selesai, hilangkan kursor berkedip
+      typingElement.style.borderRight = 'none';
     }
+  }
+  
+  // Mulai animasi ngetik setelah welcome screen hilang
+  setTimeout(() => {
+    type();
     
-    // Mulai animasi ngetik setelah welcome screen hilang
-    setTimeout(() => {
-      type();
-    }, 4000);
-
+    // Handle resize
+    window.addEventListener('resize', () => {
+      isMobile = window.innerWidth < 768;
+    });
+  }, 4000);
   </script>
 </body>
 </html>
