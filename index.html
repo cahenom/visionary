@@ -328,20 +328,20 @@
       transition: opacity 1s ease;
     }
 
-    /* Teks Ngetik Welcome Screen - juga diperbaiki untuk mobile */
+    /* Teks Ngetik Welcome Screen - diperbaiki untuk mobile */
     .typing {
       font-size: 1.25rem;
       text-align: center;
       padding: 0 20px;
       border-right: 3px solid rgba(255,255,255,0.75);
-      animation: typing 2.5s steps(25, end), blink 0.7s step-end infinite;
+      animation: typing 2.5s steps(28, end), blink 0.7s step-end infinite;
       max-width: 90%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      white-space: nowrap;
       overflow: hidden;
-      width: auto;
       display: inline-block;
+      white-space: nowrap;
+      
+      /* Hitung tepat sesuai karakter "PT Visionary Digital Indonesia" = 28 karakter */
+      width: 0; /* Mulai dari 0, akan di-animate */
     }
 
     @media (min-width: 768px) {
@@ -350,9 +350,17 @@
       }
     }
 
+    /* Mobile specific */
+    @media (max-width: 480px) {
+      .typing {
+        font-size: 1.1rem;
+        padding: 0 15px;
+      }
+    }
+
     @keyframes typing {
       from { width: 0 }
-      to { width: 100% }
+      to { width: 28ch } /* Tepat 28 karakter sesuai panjang text */
     }
 
     @keyframes blink {
