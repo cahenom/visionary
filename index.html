@@ -230,26 +230,42 @@
       .text-5xl { font-size: 3rem; }
     }
 
-    /* PERBAIKAN: Animasi ngetik dengan wrapping yang benar */
+    /* PERBAIKAN: Animasi ngetik yang optimal untuk mobile dan desktop */
     .typing-text {
       border-right: 2px solid #4f46e5;
-      overflow: hidden;
-      display: block; /* Ubah dari inline-block ke block */
       animation: blink-caret 0.75s step-end infinite;
       font-weight: 700;
-      font-size: 1.5rem;
-      line-height: 1.3; /* Perbaiki line-height */
       color: #1e40af;
+      min-height: 2.5em; /* Berikan tinggi minimum untuk stabilitas */
+      
+      /* Mobile styles */
+      font-size: 1.25rem;
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      
+      /* Pastikan teks dapat di-wrap dengan baik */
+      white-space: normal;
+      display: inline-block;
       width: 100%;
-      word-wrap: break-word; /* Tambahkan word-wrap */
-      overflow-wrap: break-word; /* Tambahkan overflow-wrap */
-      hyphens: auto; /* Tambahkan hyphenation */
+      vertical-align: top;
     }
     
+    /* Desktop styles */
     @media (min-width: 768px) {
       .typing-text {
         font-size: 2.25rem;
         line-height: 1.2;
+        min-height: 2.8em;
+      }
+    }
+
+    /* Responsive breakpoint untuk tablet */
+    @media (min-width: 480px) and (max-width: 767px) {
+      .typing-text {
+        font-size: 1.5rem;
+        line-height: 1.3;
       }
     }
 
@@ -312,37 +328,37 @@
       transition: opacity 1s ease;
     }
 
-    /* PERBAIKAN: Animasi ngetik dengan wrapping yang benar */
-  .typing-text {
-    border-right: 2px solid #4f46e5;
-    overflow: hidden;
-    display: inline-block; /* Tetap inline-block tapi dengan perbaikan */
-    animation: blink-caret 0.75s step-end infinite;
-    font-weight: 700;
-    color: #1e40af;
-    white-space: pre-wrap; /* Perubahan penting untuk mobile */
-    word-break: break-word; /* Memastikan kata bisa dipotong jika perlu */
-    line-height: 1.3;
-    min-height: 2.6em; /* Menyediakan ruang untuk 2 baris teks */
-  }
-  
-  /* Ukuran font responsif */
-  .typing-text {
-    font-size: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .typing-text {
-      font-size: 2.25rem;
-      white-space: nowrap; /* Di desktop, teks tidak wrap */
-      min-height: auto;
+    /* Teks Ngetik Welcome Screen - juga diperbaiki untuk mobile */
+    .typing {
+      font-size: 1.25rem;
+      text-align: center;
+      padding: 0 20px;
+      border-right: 3px solid rgba(255,255,255,0.75);
+      animation: typing 2.5s steps(25, end), blink 0.7s step-end infinite;
+      max-width: 90%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      width: auto;
+      display: inline-block;
     }
-  }
 
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #4f46e5 }
-  }
+    @media (min-width: 768px) {
+      .typing {
+        font-size: 2rem;
+      }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: rgba(255,255,255,0.75) }
+    }
 
   </style>
 </head>
@@ -580,35 +596,40 @@
     }
     animateParticles();
 
-  
-  // PERBAIKAN: Animasi ngetik yang lebih baik untuk mobile
-  const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
-  const typingElement = document.getElementById('typing-title');
-  let typingIndex = 0;
-  let isMobile = window.innerWidth < 768;
+    // PERBAIKAN: Animasi ngetik yang lebih robust untuk semua device
+    const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
+    const typingElement = document.getElementById('typing-title');
+    let typingIndex = 0;
+    let typingSpeed = 80; // Kecepatan mengetik yang konsisten
 
-  function type() {
-    if (typingIndex <= typingText.length) {
-      typingElement.textContent = typingText.slice(0, typingIndex);
-      typingIndex++;
-      
-      // Untuk mobile, kurangi kecepatan sedikit
-      setTimeout(type, isMobile ? 100 : 80);
-    } else {
-      // Setelah selesai, hilangkan kursor berkedip
-      typingElement.style.borderRight = 'none';
+    function type() {
+      if (typingIndex <= typingText.length) {
+        const currentText = typingText.slice(0, typingIndex);
+        typingElement.textContent = currentText;
+        typingIndex++;
+        
+        // Gunakan setTimeout yang konsisten
+        setTimeout(type, typingSpeed);
+      } else {
+        // Setelah selesai ngetik, pastikan cursor tetap berkedip
+        typingElement.style.borderRight = '2px solid #4f46e5';
+      }
     }
-  }
-  
-  // Mulai animasi ngetik setelah welcome screen hilang
-  setTimeout(() => {
-    type();
     
-    // Handle resize
-    window.addEventListener('resize', () => {
-      isMobile = window.innerWidth < 768;
+    // Mulai animasi ngetik setelah welcome screen hilang
+    setTimeout(() => {
+      type();
+    }, 4000);
+
+    // Handle resize untuk memastikan layout tetap konsisten
+    window.addEventListener('resize', function() {
+      // Reset layout jika diperlukan
+      const typingEl = document.getElementById('typing-title');
+      if (typingEl) {
+        typingEl.style.minHeight = window.innerWidth < 768 ? '2.5em' : '2.8em';
+      }
     });
-  }, 4000);
+
   </script>
 </body>
 </html>
