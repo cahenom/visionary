@@ -3,9 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="PT Visionary Digital Indonesia menyediakan solusi profesional untuk topup game dan host to host H2H dengan layanan terbaik di Indonesia.">
   <link rel="icon" type="image/x-icon" href="logo.png"> 
   <title>PT Visionary Digital Indonesia - Solusi Profesional Topup Game & Host to Host H2H</title>
   
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style">
+
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -368,7 +374,29 @@
       50% { border-color: rgba(255,255,255,0.75) }
     }
 
-  </style>
+    /* Loading optimization */
+    .loading-hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    /* Image optimization */
+    .lazy-img {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .lazy-img.loaded {
+      opacity: 1;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #4f46e5;
+      outline-offset: 2px;
+    }
+
+</style>
 </head>
 <body>
 
@@ -386,7 +414,7 @@
       <nav class="hidden md:flex space-x-10 font-semibold text-gray-700 tracking-wide">
         <a href="#home" class="hover:text-indigo-600 active" aria-current="page">Beranda</a>
         <a href="#services" class="hover:text-indigo-600">Layanan</a>
-        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+        <a href="#contact" class="hover:text-indigo-600">Kontak</a>
       </nav>
 
       <button id="menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 rounded">
@@ -395,9 +423,9 @@
     </div>
 
     <nav id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 shadow-md" aria-label="Mobile Navigation">
-      <a href="#home" class="block px-6 py-3 border-b font-semibold text-gray-700 hover:bg-indigo-50">Beranda</a>
-      <a href="#services" class="block px-6 py-3 font-semibold text-gray-700 hover:bg-indigo-50">Layanan</a>
-      <a href="#contact" class="block px-6 py-3 font-semibold text-gray-700 hover:bg-indigo-50">Contact</a>
+      <a href="#home" class="block px-6 py-3 border-b font-semibold text-gray-700 hover:bg-indigo-50 focus:bg-indigo-50">Beranda</a>
+      <a href="#services" class="block px-6 py-3 border-b font-semibold text-gray-700 hover:bg-indigo-50 focus:bg-indigo-50">Layanan</a>
+      <a href="#contact" class="block px-6 py-3 font-semibold text-gray-700 hover:bg-indigo-50 focus:bg-indigo-50">Kontak</a>
     </nav>
   </header>
 
@@ -419,7 +447,11 @@
         </div>
       </div>
       <div class="md:w-1/2 relative floating aurora-background" data-aos="zoom-in" data-aos-duration="900" data-aos-delay="150">
-        <img src="https://thebossmagazine.com/wp-content/uploads/2025/07/iStock-1072111648.jpg" alt="Ilustrasi modern perangkat mobile" class="rounded-3xl shadow-2xl mx-auto w-full max-w-md" loading="lazy" data-aos="fade-down"/>
+        <img src="https://thebossmagazine.com/wp-content/uploads/2025/07/iStock-1072111648.jpg" 
+             alt="Ilustrasi modern perangkat mobile" 
+             class="rounded-3xl shadow-2xl mx-auto w-full max-w-md lazy-img" 
+             loading="lazy"
+             data-aos="fade-down"/>
         <div class="floating-glow-1"></div>
         <div class="floating-glow-2"></div>
         <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-indigo-400 rounded-full opacity-30 blur-3xl animate-pulse"></div>
@@ -434,9 +466,10 @@
           <div class="bg-indigo-50 rounded-2xl p-8 shadow-md service-card" data-aos="flip-left" data-aos-duration="700">
             <div class="text-indigo-600 text-5xl mb-6 flex justify-center">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRctE_gFmoj_YiE3qDiTd243Hx9SlBs2K_FKQ&s" 
-                   class="rounded-xl shadow-lg" 
+                   class="rounded-xl shadow-lg lazy-img" 
                    style="width:100px; height:100px;" 
-                   alt="maktopup Logo">
+                   alt="maktopup Logo"
+                   loading="lazy">
             </div>
             <a href="https://maktopup.com" tabindex="0" class="inline-block">
               <h3 class="text-xl md:text-2xl font-bold mb-3 text-indigo-900">MAKTOPUP.COM</h3>
@@ -447,9 +480,10 @@
           <div class="bg-indigo-50 rounded-2xl p-8 shadow-md service-card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="100">
             <div class="text-indigo-600 text-5xl mb-6 flex justify-center">
               <img src="https://i.pinimg.com/736x/22/8a/ff/228aff3c94132ab50209753a447c8493.jpg" 
-                   class="rounded-xl shadow-lg" 
+                   class="rounded-xl shadow-lg lazy-img" 
                    style="width:100px; height:100px;" 
-                   alt="Pulsa CC Logo">
+                   alt="Pulsa CC Logo"
+                   loading="lazy">
             </div>
             <h3 class="text-xl md:text-2xl font-bold mb-3 text-indigo-900">PULSA.CC</h3>
             <p class="text-indigo-700">Platform beli pulsa murah dan H2H</p>
@@ -464,19 +498,19 @@
     <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
       <div class="flex items-center justify-center sm:justify-start space-x-4">
         <i class="fas fa-map-marker-alt text-indigo-600 text-2xl"></i>
-        <p class="text-gray-700">
+        <address class="text-gray-700 not-italic">
           Sidomulyo, SP2, Blok B.T,<br>
           Kec. Muara Lakitan, Kab. Musi Rawas,<br>
           Sumatra Selatan, Indonesia
-        </p>
+        </address>
       </div>
       <div class="flex items-center justify-center sm:justify-start space-x-4">
         <i class="fas fa-phone-alt text-indigo-600 text-2xl"></i>
-        <p class="text-gray-700">0851-7992-1771</p>
+        <a href="tel:085179921771" class="text-gray-700 hover:text-indigo-600 transition-colors">0851-7992-1771</a>
       </div>
       <div class="flex items-center justify-center sm:justify-start space-x-4">
         <i class="fas fa-envelope text-indigo-600 text-2xl"></i>
-        <p class="text-gray-700">admin@visionarydigital.my.id</p>
+        <a href="mailto:admin@visionarydigital.my.id" class="text-gray-700 hover:text-indigo-600 transition-colors">admin@visionarydigital.my.id</a>
       </div>
     </div>
   </section>
@@ -484,7 +518,7 @@
   <!-- Footer -->
   <footer class="bg-white border-t border-gray-200 py-8 mt-20 select-none relative z-10">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-      <p>© 2024 PT Visionary Digital Indonesia. All rights reserved.</p>
+      <p>© <span id="current-year">2024</span> PT Visionary Digital Indonesia. All rights reserved.</p>
       <div class="flex space-x-6 mt-4 md:mt-0">
         <a href="#" aria-label="Facebook" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-facebook-f fa-lg"></i></a>
         <a href="#" aria-label="Twitter" class="hover:text-indigo-600 transition transform hover:scale-110"><i class="fab fa-twitter fa-lg"></i></a>
@@ -498,18 +532,6 @@
   <div id="welcome-screen">
     <div class="typing">PT Visionary Digital Indonesia</div>
   </div>
-
-  <script>
-    // Tunggu animasi ngetik selesai + jeda
-    setTimeout(() => {
-      const welcome = document.getElementById("welcome-screen");
-      welcome.style.opacity = "0";
-      document.body.style.overflow = "auto";
-      setTimeout(() => {
-        welcome.style.display = "none";
-      }, 1000);
-    }, 3500);
-  </script>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -525,6 +547,15 @@
       mobileMenu.classList.toggle("open");
     });
 
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Scroll header shadow
     const header = document.querySelector("header");
     window.addEventListener("scroll", () => {
@@ -537,7 +568,9 @@
 
     // AOS init
     AOS.init({
-      once: false
+      once: false,
+      duration: 800,
+      easing: 'ease-in-out-quad'
     });
 
     // Particle background
@@ -606,38 +639,71 @@
     }
     animateParticles();
 
-    // PERBAIKAN: Animasi ngetik yang lebih robust untuk semua device
+    // Animasi ngetik welcome screen
+    const welcomeTyping = document.querySelector('.typing');
+    welcomeTyping.style.width = '0'; // Pastikan dimulai dari width 0
+
+    // Animasi ngetik hero section
     const typingText = "Solusi Profesional untuk Topup Game & Host to Host H2H";
     const typingElement = document.getElementById('typing-title');
+    typingElement.textContent = ''; // Pastikan kosong di awal
+    
     let typingIndex = 0;
-    let typingSpeed = 80; // Kecepatan mengetik yang konsisten
+    let typingSpeed = 80;
 
-    function type() {
+    function typeHeroText() {
       if (typingIndex <= typingText.length) {
         const currentText = typingText.slice(0, typingIndex);
         typingElement.textContent = currentText;
         typingIndex++;
-        
-        // Gunakan setTimeout yang konsisten
-        setTimeout(type, typingSpeed);
+        setTimeout(typeHeroText, typingSpeed);
       } else {
-        // Setelah selesai ngetik, pastikan cursor tetap berkedip
         typingElement.style.borderRight = '2px solid #4f46e5';
       }
     }
-    
-    // Mulai animasi ngetik setelah welcome screen hilang
-    setTimeout(() => {
-      type();
-    }, 4000);
 
-    // Handle resize untuk memastikan layout tetap konsisten
-    window.addEventListener('resize', function() {
-      // Reset layout jika diperlukan
-      const typingEl = document.getElementById('typing-title');
-      if (typingEl) {
-        typingEl.style.minHeight = window.innerWidth < 768 ? '2.5em' : '2.8em';
-      }
+    // Lazy loading images
+    function lazyLoadImages() {
+      const lazyImages = document.querySelectorAll('.lazy-img');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+
+    // Update current year in footer
+    function updateCurrentYear() {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    }
+
+    // Initialize all functions when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hide welcome screen after animation
+      setTimeout(() => {
+        const welcome = document.getElementById("welcome-screen");
+        welcome.style.opacity = "0";
+        document.body.style.overflow = "auto";
+        setTimeout(() => {
+          welcome.style.display = "none";
+          // Start typing animation after welcome screen is hidden
+          typeHeroText();
+        }, 1000);
+      }, 3500);
+
+      // Initialize other functions
+      lazyLoadImages();
+      updateCurrentYear();
     });
 
   </script>
