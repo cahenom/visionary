@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebijakan Privasi - PT Visionary Digital Indonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+    .hero, .section-bg { position: relative; overflow: hidden; color: white; }
+    .section-bg::after, .hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat; opacity:0.15; z-index:0; }
+    .card { transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-6px); }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Header -->
+<header class="fixed w-full z-50 bg-white shadow">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <h1 class="text-xl font-bold text-blue-600">Visionary Digital</h1>
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html" class="hover:text-blue-600">Beranda</a>
+      <a href="index.html#about" class="hover:text-blue-600">Tentang Kami</a>
+      <a href="index.html#services" class="hover:text-blue-600">Layanan</a>
+      <a href="index.html#contact" class="hover:text-blue-600">Kontak</a>
+    </nav>
+    <button id="menu-btn" class="md:hidden text-blue-600"><i class="fas fa-bars fa-lg"></i></button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow">
+    <a href="index.html" class="block px-4 py-2">Beranda</a>
+    <a href="index.html#about" class="block px-4 py-2">Tentang Kami</a>
+    <a href="index.html#services" class="block px-4 py-2">Layanan</a>
+    <a href="index.html#contact" class="block px-4 py-2">Kontak</a>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero flex items-center justify-center h-[60vh] text-center px-4">
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-700"></div>
+  <div class="relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4" id="hero-typing"></h1>
+    <p class="text-lg">Privasi Anda adalah prioritas kami</p>
+  </div>
+</section>
+
+<!-- Privacy Policy Content -->
+<section class="py-20 px-6 bg-white relative z-10">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-blue-700 mb-6">Kebijakan Privasi</h2>
+    <p class="mb-4 text-gray-700 leading-relaxed">
+      PT Visionary Digital Indonesia menghargai dan melindungi privasi setiap pengguna. Dokumen ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat menggunakan layanan kami.
+    </p>
+
+    <div class="space-y-6">
+      <div data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-2">1. Informasi yang Kami Kumpulkan</h3>
+        <p class="text-gray-700">
+          Kami dapat mengumpulkan informasi pribadi seperti nama, email, nomor telepon, serta data transaksi saat Anda menggunakan layanan kami.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold mb-2">2. Penggunaan Informasi</h3>
+        <p class="text-gray-700">
+          Informasi digunakan untuk menyediakan layanan, meningkatkan kualitas platform, mendukung transaksi, dan memberikan informasi terbaru terkait layanan kami.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold mb-2">3. Perlindungan Data</h3>
+        <p class="text-gray-700">
+          Kami menggunakan teknologi keamanan standar industri untuk melindungi data Anda dari akses tidak sah, penyalahgunaan, atau kebocoran.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-xl font-semibold mb-2">4. Berbagi Informasi</h3>
+        <p class="text-gray-700">
+          Kami tidak akan menjual atau menyewakan informasi pribadi Anda. Informasi hanya dibagikan dengan mitra terpercaya jika diperlukan untuk layanan.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-xl font-semibold mb-2">5. Hak Pengguna</h3>
+        <p class="text-gray-700">
+          Anda berhak mengakses, memperbarui, atau menghapus data pribadi Anda dengan menghubungi tim dukungan kami.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-xl font-semibold mb-2">6. Perubahan Kebijakan</h3>
+        <p class="text-gray-700">
+          Kebijakan privasi ini dapat diperbarui sewaktu-waktu. Perubahan akan diumumkan melalui situs resmi kami.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-blue-900 text-white pt-12 pb-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
+    <div>
+      <h3 class="text-xl font-bold mb-3">PT Visionary Digital Indonesia</h3>
+      <p class="text-gray-300 text-sm">
+        Penyedia layanan digital inovatif: top-up game, pulsa H2H, dan solusi teknologi terpercaya untuk bisnis Anda.
+      </p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-3">Navigasi</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="index.html" class="hover:text-white">Beranda</a></li>
+        <li><a href="index.html#about" class="hover:text-white">Tentang Kami</a></li>
+        <li><a href="index.html#services" class="hover:text-white">Layanan</a></li>
+        <li><a href="privacy.html" class="hover:text-white">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold mb-3">Informasi</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="#" class="hover:text-white">Syarat & Ketentuan</a></li>
+        <li><a href="privacy.html" class="hover:text-white">Kebijakan Privasi</a></li>
+        <li><a href="#" class="hover:text-white">Karir</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold mb-3">Kontak</h3>
+      <p class="text-gray-300 text-sm">Sidomulyo, Musi Rawas, Sumatera Selatan</p>
+      <p class="text-gray-300 text-sm">Email: customer@visionarydigital.my.id</p>
+      <p class="text-gray-300 text-sm mb-3">Telp: +62 851 7992 1771</p>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram fa-lg"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-10 border-t border-blue-700 pt-4 text-center text-gray-400 text-sm">
+    &copy; 2025 PT Visionary Digital Indonesia | 
+    <a href="https://visionarydigital.my.id" class="underline hover:text-white">visionarydigital.my.id</a>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+
+// Typing effect untuk judul
+function typeText(elementId, text, delay=100){
+  let idx=0;
+  function type(){
+    if(idx<=text.length){
+      document.getElementById(elementId).innerText=text.slice(0,idx);
+      idx++; setTimeout(type,delay);
+    }
+  }
+  type();
+}
+typeText('hero-typing','Kebijakan Privasi');
+</script>
+
+</body>
+</html>
