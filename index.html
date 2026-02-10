@@ -34,9 +34,24 @@
 <style>
 body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 .hero, .section-bg { position: relative; overflow: hidden; color: white; }
-.section-bg::after, .hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat; opacity:0.2; z-index:0; }
+.section-bg::after, .hero::after { 
+  content:""; 
+  position:absolute; 
+  top:-30%; 
+  left:0; 
+  width:100%; 
+  height:160%; 
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat; 
+  opacity:0.45; 
+  z-index:-20; 
+  transform: translateY(calc(var(--parallax-offset, 0) * 1px));
+  will-change: transform;
+}
 .card { transition: all 0.3s ease; }
 .card:hover { transform: translateY(-6px); }
+@keyframes gradient-x {0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.animate-gradient-x{background-size:200% 200%; animation:gradient-x 15s ease infinite;}
+
 @keyframes gradient-x {0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .animate-gradient-x{background-size:200% 200%; animation:gradient-x 15s ease infinite;}
 
@@ -66,7 +81,7 @@ body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 
 <!-- Hero Section -->
 <section id="home" class="hero flex items-center justify-center h-screen text-center px-4">
-  <div class="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-700 animate-gradient-x"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-500/60 to-blue-700/80 animate-gradient-x -z-10"></div>
   <div class="relative z-10">
     <h1 class="text-5xl md:text-6xl font-bold mb-4">PT. Visionary Digital Indonesia</h1>
     <p class="text-3xl mb-6" id="hero-subtyping"></p>
@@ -75,7 +90,8 @@ body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 </section>
 
 <!-- About Section -->
-<section id="about" class="section-bg py-20 px-4" style="background: linear-gradient(135deg,#1e3a8a,#3b82f6);">
+<section id="about" class="section-bg py-20 px-4">
+  <div class="absolute inset-0 bg-blue-900/70 -z-10"></div>
   <div class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center">
     <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="rounded shadow-lg">
@@ -90,7 +106,8 @@ body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 
 
 <!-- Contact Section -->
-<section id="contact" class="section-bg py-20 px-4" style="background: linear-gradient(135deg,#0f172a,#2563eb);">
+<section id="contact" class="section-bg py-20 px-4">
+  <div class="absolute inset-0 bg-slate-900/80 -z-10"></div>
   <h2 class="text-4xl font-bold text-center mb-10" id="contact-typing"></h2>
   <div class="relative z-10 max-w-6xl mx-auto">
     <iframe 
@@ -132,51 +149,110 @@ body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init();
+AOS.init({
+  duration: 1000,
+  once: true,
+  easing: 'ease-out-quart'
+});
 
 // Mobile menu toggle
 const btn = document.getElementById('menu-btn');
 const menu = document.getElementById('mobile-menu');
-btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+btn.addEventListener('click', () => { 
+  menu.classList.toggle('hidden'); 
+});
 
-// Smooth looping typing effect
-function smoothLoopTyping(elementId, texts, speed=150, pause=2000) {
+// Smooth looping typing effect with optimized logic
+function smoothLoopTyping(elementId, texts, speed=120, pause=2500) {
   let textIndex = 0, charIndex = 0;
   let deleting = false;
+  const el = document.getElementById(elementId);
+  
   function type() {
-    const el = document.getElementById(elementId);
+    if (!el) return;
     const currentText = texts[textIndex];
+    
     if(!deleting){
       el.innerText = currentText.slice(0,charIndex);
       charIndex++;
       if(charIndex > currentText.length){
         deleting = true;
         setTimeout(type, pause);
-      } else setTimeout(type, speed);
+      } else {
+        setTimeout(type, speed);
+      }
     } else {
       el.innerText = currentText.slice(0,charIndex-1);
       charIndex--;
       if(charIndex <= 0){
         deleting = false;
         textIndex = (textIndex+1) % texts.length;
-        setTimeout(type, 300);
-      } else setTimeout(type, speed/2);
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, speed/2);
+      }
     }
   }
   type();
 }
-smoothLoopTyping('hero-subtyping',['Inovasi','Keamanan','Kemudahan']);
+smoothLoopTyping('hero-subtyping',['Inovasi','Keamanan','Kemudahan','Layanan Terbaik']);
 
-// Section titles typing
+// Section titles typing with observer for better trigger
 function typeText(elementId, text, delay=100){
   let idx=0;
-  function type(){ if(idx<=text.length){ document.getElementById(elementId).innerText=text.slice(0,idx); idx++; setTimeout(type,delay); } }
-  type();
+  const el = document.getElementById(elementId);
+  function type(){ 
+    if(!el) return;
+    if(idx<=text.length){ 
+      el.innerText=text.slice(0,idx); 
+      idx++; 
+      setTimeout(type,delay); 
+    } 
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && idx === 0) {
+        type();
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  if (el) observer.observe(el);
 }
+
 typeText('about-typing','Tentang Kami');
 typeText('services-typing','Layanan Kami');
 typeText('features-typing','Keunggulan Kami');
 typeText('contact-typing','Kontak Kami');
+
+// Header & Parallax Scroll Effect
+const header = document.querySelector('header');
+const parallaxElements = document.querySelectorAll('.hero, .section-bg');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  
+  // Header shadow
+  if (scrolled > 50) {
+    header.classList.add('shadow-xl');
+  } else {
+    header.classList.remove('shadow-xl');
+  }
+  
+  // Parallax logic
+  parallaxElements.forEach(el => {
+    const speed = 0.45;
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible) {
+      const offset = (window.innerHeight - rect.top) * speed;
+      el.style.setProperty('--parallax-offset', offset - (window.innerHeight * speed));
+    }
+  });
+});
 </script>
 
 </body>
