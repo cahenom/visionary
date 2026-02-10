@@ -24,6 +24,10 @@ Kami percaya bahwa teknologi adalah jembatan menuju masa depan ekonomi digital y
 Platform **top-up game** dan pembelian item digital dengan pengalaman transaksi yang cepat dan aman.  
 Mendukung berbagai game populer seperti **Mobile Legends**, **Free Fire**, dan **PUBG Mobile**.
 
+### 🔌 [Pulsa.cc](https://pulsa.cc)
+Platform distribusi **pulsa digital dan layanan prabayar** yang menggunakan sistem **Host-to-Host (H2H)**.  
+Didesain untuk mitra bisnis, agen, dan developer yang ingin memperluas jaringan distribusi digitalnya.
+
 ---
 
 ## 🧠 Fokus Kami
@@ -36,6 +40,14 @@ Mendukung berbagai game populer seperti **Mobile Legends**, **Free Fire**, dan *
 
 ## 🏗️ Teknologi
 Kami menggunakan kombinasi teknologi modern untuk menjamin performa, keamanan, dan skalabilitas:
+
+| Kategori | Teknologi |
+|-----------|------------|
+| **Backend** | PHP, Node.js, Go |
+| **Frontend** | HTML5, Tailwind CSS, React |
+| **Database** | MySQL, Redis |
+| **Infrastruktur** | Cloudflare, VPS, Containerized Deployment |
+| **Integrasi** | API H2H, Payment Gateway, QRIS |
 
 ---
 
