@@ -1,38 +1,19 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="Visionary Digital Indonesia provides strategic digital transformation and bespoke technology architecture for Indonesia's leading institutions. Enterprise technology solutions, cloud infrastructure, cybersecurity, and digital consulting services.">
-    <meta name="keywords" content="digital transformation, enterprise technology, cloud infrastructure, cybersecurity, Indonesia, technology consulting, digital solutions">
-    <meta name="author" content="Visionary Digital Indonesia">
-    <meta property="og:title" content="Visionary Digital Indonesia | Enterprise Technology Solutions">
-    <meta property="og:description" content="Pioneering digital transformation and bespoke technology architecture for Indonesia's leading institutions.">
-    <meta property="og:type" content="website">
-
-    <title>Visionary Digital Indonesia | Enterprise Technology Solutions</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-    <script id="tailwind-config">
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PT Visionary Digital Indonesia | Enterprise Technology Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#0A1D37",
-                        "accent-gold": "#C5A059",
+                        "primary": "#0A1D37", // Deep Navy
+                        "accent-gold": "#C5A059", // Gold
                         "accent-silver": "#E2E8F0",
                         "corporate-blue": "#1B3B6F",
                         "background-light": "#FAFAFA",
@@ -45,8 +26,7 @@
             },
         }
     </script>
-
-    <style type="text/tailwindcss">
+<style type="text/tailwindcss">
         @layer base {
             body {
                 @apply font-sans text-slate-800 bg-background-light;
@@ -63,333 +43,289 @@
         }
     </style>
 </head>
-
 <body class="selection:bg-accent-gold/30">
-
-<!-- TOP BAR -->
 <div class="bg-primary text-white py-2 text-xs border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <span class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm text-accent-gold">call</span>
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-accent-gold">call</span>
                 +62 851 7992 1771
             </span>
-            <span class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm text-accent-gold">mail</span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-accent-gold">mail</span>
                 custommer@visionarydigital.my.id
             </span>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2 cursor-pointer hover:text-accent-gold transition-colors">
-                <span class="material-symbols-outlined text-sm">language</span>
-                <span>EN</span>
-                <span class="material-symbols-outlined text-[10px]">expand_more</span>
-            </div>
-            <div class="h-3 w-px bg-white/20"></div>
-            <a class="hover:text-accent-gold transition-colors" href="#">Client Portal</a>
-        </div>
-    </div>
 </div>
-
-<!-- HEADER -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 cursor-pointer hover:text-accent-gold transition-colors">
+<span class="material-symbols-outlined text-sm">language</span>
+<span>EN</span>
+<span class="material-symbols-outlined text-[10px]">expand_more</span>
+</div>
+<div class="h-3 w-px bg-white/20"></div>
+<a class="hover:text-accent-gold transition-colors" href="#">Client Portal</a>
+</div>
+</div>
+</div>
 <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-            <div class="text-primary">
-                <img src="logo.png" class="h-12"/>
-            </div>
-            <div class="leading-tight">
-                <h2 class="text-lg md:text-xl font-bold tracking-tight text-primary uppercase">Visionary Digital</h2>
-                <p class="text-[10px] tracking-[0.2em] text-accent-gold font-bold">INDONESIA</p>
-            </div>
-        </div>
-        <nav class="hidden lg:flex items-center gap-8">
-            <a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#">Home</a>
-            <a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#about">About</a>
-            <a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#compliance">Governance</a>
-            <a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#contact">Contact</a>
-        </nav>
-        <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 md:px-8 py-2 md:py-3 font-bold transition-all text-xs uppercase tracking-widest">
+<div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+    <img src="logo.png"/>
+</div>
+<div class="leading-tight">
+<h2 class="text-xl font-bold tracking-tight text-primary uppercase">Visionary Digital</h2>
+<p class="text-[10px] tracking-[0.2em] text-accent-gold font-bold">INDONESIA</p>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#">Home</a>
+<div class="group relative">
+<button class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors flex items-center gap-1 uppercase tracking-wider">
+                    Expertise <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+</div>
+<a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#about">About</a>
+<a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#compliance">Governance</a>
+<a class="text-sm font-semibold text-primary hover:text-accent-gold transition-colors uppercase tracking-wider" href="#contact">Contact</a>
+</nav>
+<button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 font-bold transition-all text-xs uppercase tracking-widest">
             Inquiry
         </button>
-    </div>
+</div>
 </header>
-
-<!-- HERO -->
-<section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden bg-primary">
-    <div class="absolute inset-0 z-0">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0zH2LjahRtvvyYctW6RpFwDGtCZ7GVZMcM2uIh_a8KjN3ot-OemesbFsr4chDSTRSnw9AT5vib5idwQfVzj8F9TCJTn8WYocLL-bQjqjPUvdUUD1azSnp74rTzSCQIltgxZ1gHrTn9MXsrNotr0yO0glsgly2RcIxcl6uEIQp-n1xiOCwGOAq2iOOPGPtGxUjpcCSKvn_hPNQIaudKzl-VPJZ0xiqMKtZBLn1nKV3v2HsKqHkRAN7uUBAviyMQOs85mkHV6fpZrp5" 
-            class="w-full h-full object-cover opacity-40">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <div class="max-w-3xl space-y-6 md:space-y-8">
-            <div class="flex items-center gap-4">
-                <div class="h-px w-10 bg-accent-gold"></div>
-                <span class="text-accent-gold text-xs md:text-sm font-bold tracking-[0.3em] uppercase">Pioneering Progress</span>
-            </div>
-
-            <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-bold leading-tight md:leading-[1.1]">
-                Engineering the <br/>
-                <span class="italic font-normal">Next Era</span> of Enterprise
-            </h1>
-
-            <p class="text-base md:text-xl text-slate-300 max-w-xl leading-relaxed font-light">
-                Visionary Digital Indonesia provides strategic digital transformation and bespoke technology architecture for the nation's leading institutions.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 pt-4">
-                <button class="bg-accent-gold hover:bg-accent-gold/90 text-primary px-8 md:px-10 py-4 md:py-5 font-bold transition-all shadow-xl text-sm uppercase tracking-widest">
-                    Corporate Profile
-                </button>
-                <button class="border border-white/30 text-white hover:bg-white/10 px-8 md:px-10 py-4 md:py-5 font-bold transition-all text-sm uppercase tracking-widest">
-                    Our Solutions
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- COMPLIANCE -->
-<section id="compliance" class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
-        <div class="grid lg:grid-cols-4 gap-8 md:gap-12 items-center">
-            <div class="lg:col-span-1 border-r border-slate-100 pr-6 md:pr-8">
-                <h3 class="text-accent-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Established 2025</h3>
-                <p class="text-primary font-bold text-xl font-serif">Official Compliance & Credentials</p>
-            </div>
-            <div class="lg:col-span-3 grid md:grid-cols-2 gap-6 md:gap-8 lg:pl-8">
-                
-                <div class="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-sm bg-slate-50 border border-slate-100">
-                    <div class="w-14 h-14 md:w-16 md:h-16 gold-gradient rounded-full flex items-center justify-center flex-shrink-0 shadow-inner">
-                        <span class="material-symbols-outlined text-white text-2xl md:text-3xl">verified_user</span>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Kemenkumham RI Registration</p>
-                        <p class="text-lg font-bold text-primary font-serif">AHU-049714.AH.01.30.2025</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-sm bg-slate-50 border border-slate-100">
-                    <div class="w-14 h-14 md:w-16 md:h-16 gold-gradient rounded-full flex items-center justify-center flex-shrink-0 shadow-inner">
-                        <span class="material-symbols-outlined text-white text-2xl md:text-3xl">gavel</span>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">NIB Identification</p>
-                        <p class="text-lg font-bold text-primary font-serif">1209250021561</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-32 bg-background-light">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="flex flex-col lg:flex-row gap-16 md:gap-24 items-center">
-
-            <div class="lg:w-1/2 relative">
-                <div class="absolute -top-10 -left-10 w-48 md:w-64 h-48 md:h-64 bg-slate-50 border border-slate-100 -z-10"></div>
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDexZWI4lUBhWHA5CtgXt_cCxTZQT6nH2C7r3ygqo2oml3gpWXn4x3M-BxjD98vYwVpkZAySdAuR-OlcrfRXMrDgB-TkVqRK-2gEBLigsmtUXVYoAcJA3QB3A_A7z99kqclYd1fz_eEz7nS3yAiZoog1ln-Al3mwXlJjBeSxxFE9WuTm0YOJlmu43YDamNlz3YkRElHYcYIaSPzAcWaiJumMhcIxTylv51sDvn5t4JguIKyvN620e04pC8Nc3gBlk7wLsKkS7YpWNEb"
-                     class="w-full h-[300px] md:h-[600px] object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
-
-                <div class="absolute bottom-6 md:bottom-10 right-6 md:right-10 bg-white p-6 md:p-10 shadow-xl border-l-4 border-accent-gold">
-                    <p class="text-2xl md:text-3xl font-bold text-primary font-serif mb-2">Reliability</p>
-                    <p class="text-xs md:text-sm text-slate-500 font-bold tracking-widest uppercase">Since 2025</p>
-                </div>
-            </div>
-
-            <div class="lg:w-1/2 space-y-8 md:space-y-10">
-                <div class="space-y-3 md:space-y-4">
-                    <span class="text-accent-gold font-bold tracking-[0.4em] text-xs uppercase block">Our Heritage</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-primary leading-tight">Founded on Trust, Driven by Innovation</h2>
-                </div>
-
-                <p class="text-base md:text-lg text-slate-600 leading-relaxed font-light">
-                    Visionary Digital Indonesia stands as a beacon of stability in the rapidly evolving digital landscape. 
-                    We combine global technical expertise with deep local insights to serve Indonesia's enterprise sector.
+<main>
+<section class="relative h-[85vh] flex items-center overflow-hidden bg-primary">
+<div class="absolute inset-0 z-0">
+<img alt="Jakarta Skyline Corporate View" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0zH2LjahRtvvyYctW6RpFwDGtCZ7GVZMcM2uIh_a8KjN3ot-OemesbFsr4chDSTRSnw9AT5vib5idwQfVzj8F9TCJTn8WYocLL-bQjqjPUvdUUD1azSnp74rTzSCQIltgxZ1gHrTn9MXsrNotr0yO0glsgly2RcIxcl6uEIQp-n1xiOCwGOAq2iOOPGPtGxUjpcCSKvn_hPNQIaudKzl-VPJZ0xiqMKtZBLn1nKV3v2HsKqHkRAN7uUBAviyMQOs85mkHV6fpZrp5"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl space-y-8">
+<div class="flex items-center gap-4">
+<div class="h-px w-12 bg-accent-gold"></div>
+<span class="text-accent-gold text-sm font-bold tracking-[0.3em] uppercase">Pioneering Progress</span>
+</div>
+<h1 class="text-6xl lg:text-8xl text-white font-bold leading-tight">
+                    Engineering the <br/>
+<span class="italic font-normal">Next Era</span> of Enterprise
+                </h1>
+<p class="text-xl text-slate-300 max-w-xl leading-relaxed font-light">
+                    PT Visionary Digital Indonesia provides strategic digital transformation and bespoke technology architecture for the nation's leading institutions.
                 </p>
-
-                <div class="grid grid-cols-2 gap-8 md:gap-12 pt-4">
-                    <div>
-                        <h5 class="text-primary font-bold text-lg mb-2 md:mb-4 font-serif">Mission</h5>
-                        <p class="text-sm text-slate-500 leading-relaxed">To accelerate Indonesia's digital economy through world-class engineering and ethical corporate governance.</p>
-                    </div>
-                    <div>
-                        <h5 class="text-primary font-bold text-lg mb-2 md:mb-4 font-serif">Vision</h5>
-                        <p class="text-sm text-slate-500 leading-relaxed">To be the trusted technology partner for public and private institutions across the archipelago.</p>
-                    </div>
-                </div>
-
-                <button class="bg-primary hover:bg-corporate-blue text-white px-8 md:px-10 py-4 md:py-5 font-bold transition-all text-xs uppercase tracking-widest">
-                    Meet Our Executives
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="flex flex-col sm:flex-row gap-6 pt-4">
+<button class="bg-accent-gold hover:bg-accent-gold/90 text-primary px-10 py-5 font-bold transition-all shadow-xl text-sm uppercase tracking-widest">
+                        Corporate Profile
+                    </button>
+<button class="border border-white/30 text-white hover:bg-white/10 px-10 py-5 font-bold transition-all text-sm uppercase tracking-widest">
+                        Our Solutions
+                    </button>
+</div>
+</div>
+</div>
 </section>
+<section class="bg-white border-b border-slate-200" id="compliance">
+<div class="max-w-7xl mx-auto px-6 py-16">
+<div class="grid lg:grid-cols-4 gap-12 items-center">
+<div class="lg:col-span-1 border-r border-slate-100 pr-8">
+<h3 class="text-accent-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Established 2025</h3>
+<p class="text-primary font-bold text-xl font-serif">Official Compliance &amp; Credentials</p>
+</div>
+<div class="lg:col-span-3 grid md:grid-cols-2 gap-8 lg:pl-8">
+<div class="flex items-center gap-6 p-6 rounded-sm bg-slate-50 border border-slate-100">
+<div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center flex-shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-white text-3xl">verified_user</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Kemenkumham RI Registration</p>
+<p class="text-lg font-bold text-primary font-serif">AHU-049714.AH.01.30.2025</p>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-sm bg-slate-50 border border-slate-100">
+<div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center flex-shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-white text-3xl">gavel</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">NIB Identification</p>
+<p class="text-lg font-bold text-primary font-serif">1209250021561</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-light" id="services">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-24 max-w-3xl mx-auto">
+<span class="text-accent-gold font-bold tracking-[0.4em] text-xs uppercase block mb-4">Service Excellence</span>
+<h2 class="text-4xl md:text-5xl font-bold text-primary mb-8">Strategic Technology Pillars</h2>
+</div>
 
-<!-- PARTNERS -->
+</section>
+<section class="py-32 overflow-hidden bg-white" id="about">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col lg:flex-row gap-24 items-center">
+<div class="lg:w-1/2 relative">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-slate-50 border border-slate-100 -z-10"></div>
+<img alt="Executive Leadership Meeting" class="w-full h-[600px] object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDexZWI4lUBhWHA5CtgXt_cCxTZQT6nH2C7r3ygqo2oml3gpWXn4x3M-BxjD98vYwVpkZAySdAuR-OlcrfRXMrDgB-TkVqRK-2gEBLigsmtUXVYoAcJA3QB3A_A7z99kqclYd1fz_eEz7nS3yAiZoog1ln-Al3mwXlJjBeSxxFE9WuTm0YOJlmu43YDamNlz3YkRElHYcYIaSPzAcWaiJumMhcIxTylv51sDvn5t4JguIKyvN620e04pC8Nc3gBlk7wLsKkS7YpWNEb"/>
+<div class="absolute bottom-10 right-10 bg-white p-10 shadow-xl border-l-4 border-accent-gold">
+<p class="text-3xl font-bold text-primary font-serif mb-2">Reliability</p>
+<p class="text-sm text-slate-500 font-bold tracking-widest uppercase">Since 2025</p>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-10">
+<div class="space-y-4">
+<span class="text-accent-gold font-bold tracking-[0.4em] text-xs uppercase block">Our Heritage</span>
+<h2 class="text-4xl md:text-5xl font-bold text-primary leading-tight">Founded on Trust, Driven by Innovation</h2>
+</div>
+<p class="text-lg text-slate-600 leading-relaxed font-light">
+                        PT Visionary Digital Indonesia stands as a beacon of stability in the rapidly evolving digital landscape. We combine global technical expertise with deep local insights to serve Indonesia's burgeoning enterprise sector.
+                    </p>
+<div class="grid grid-cols-2 gap-12 pt-4">
+<div>
+<h5 class="text-primary font-bold text-lg mb-4 font-serif">Mission</h5>
+<p class="text-sm text-slate-500 leading-relaxed">To accelerate Indonesia's digital economy through world-class engineering and ethical corporate governance.</p>
+</div>
+<div>
+<h5 class="text-primary font-bold text-lg mb-4 font-serif">Vision</h5>
+<p class="text-sm text-slate-500 leading-relaxed">To be the trusted technology partner of choice for public and private institutions across the archipelago.</p>
+</div>
+</div>
+<button class="bg-primary hover:bg-corporate-blue text-white px-10 py-5 font-bold transition-all text-xs uppercase tracking-widest">
+                        Meet Our Executives
+                    </button>
+</div>
+</div>
+</div>
+</section>
 <section class="py-24 bg-slate-50 border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Partnerships & Network</p>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12 items-center opacity-60 hover:opacity-100 transition-opacity">
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold italic tracking-tighter">FINTECH.</span>
-            </div>
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">Global</span>
-            </div>
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">NusaTech</span>
-            </div>
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">E-Gov</span>
-            </div>
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">D-Bank</span>
-            </div>
-            <div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                <span class="text-xl md:text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">LogisX</span>
-            </div>
-        </div>
-    </div>
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Partnerships &amp; Network</p>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 items-center opacity-60 hover:opacity-100 transition-opacity">
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold italic tracking-tighter">FINTECH.</span>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">Global</span>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">NusaTech</span>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">E-Gov</span>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">D-Bank</span>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="text-2xl font-serif text-slate-400 font-bold uppercase tracking-widest">LogisX</span>
+</div>
+</div>
+</div>
 </section>
-
-<!-- CTA -->
 <section class="py-32 bg-primary relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWEC3Qyrr-8wlHiwMHanL9VVb-Vca7R_z2opmlat1vgam-gU1RQSf6eflNlQTZKEx4TXnqZJIsuyb9FhQfzb4wHVQWr-lSgugn8xOXCb0wVAM34E-pe3P7h9-kw12TR7Ju3sti3ksNmLJDwGuIp_E_eo5p-kaRW_x_OLt_zav44w10CdX7PV8qbWfOdvo1aeFJy2QXRAaVblnPQ9Hedg5J0Fu7sT8WTezIcAvVpmzXKGwmcs8wDykD6yl2e8WUvBMzqC3jXN7yLrrH" 
-             class="w-full h-full object-cover">
-    </div>
-
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center relative z-10">
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
-            Discuss Your Digital <br/>
-            <span class="text-accent-gold italic font-normal">Transformation Journey</span>
-        </h2>
-
-        <p class="text-base md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light">
-            Our senior partners are ready to provide a preliminary assessment of your organization's digital landscape.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-            <button class="bg-accent-gold text-primary hover:bg-white px-8 md:px-12 py-4 md:py-5 font-bold transition-all text-sm uppercase tracking-widest w-full sm:w-auto">
-                Request Consultation
-            </button>
-            <button class="border border-white/20 text-white hover:bg-white/10 px-8 md:px-12 py-4 md:py-5 font-bold transition-all text-sm uppercase tracking-widest w-full sm:w-auto">
-                Corporate Credentials
-            </button>
-        </div>
-    </div>
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Network Pattern" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWEC3Qyrr-8wlHiwMHanL9VVb-Vca7R_z2opmlat1vgam-gU1RQSf6eflNlQTZKEx4TXnqZJIsuyb9FhQfzb4wHVQWr-lSgugn8xOXCb0wVAM34E-pe3P7h9-kw12TR7Ju3sti3ksNmLJDwGuIp_E_eo5p-kaRW_x_OLt_zav44w10CdX7PV8qbWfOdvo1aeFJy2QXRAaVblnPQ9Hedg5J0Fu7sT8WTezIcAvVpmzXKGwmcs8wDykD6yl2e8WUvBMzqC3jXN7yLrrH"/>
+</div>
+<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+<h2 class="text-4xl md:text-6xl font-bold text-white mb-8">Discuss Your Digital <br/><span class="text-accent-gold italic font-normal">Transformation Journey</span></h2>
+<p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light">
+                Our senior partners are ready to provide a preliminary assessment of your organization's digital landscape.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="bg-accent-gold text-primary hover:bg-white px-12 py-5 font-bold transition-all text-sm uppercase tracking-widest w-full sm:w-auto">
+                    Request Consultation
+                </button>
+<button class="border border-white/20 text-white hover:bg-white/10 px-12 py-5 font-bold transition-all text-sm uppercase tracking-widest w-full sm:w-auto">
+                    Corporate Credentials
+                </button>
+</div>
+</div>
 </section>
-
-<!-- FOOTER -->
-<footer id="contact" class="bg-primary text-slate-400 pt-24 pb-12">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-20">
-            
-            <div class="lg:col-span-4 space-y-6 md:space-y-8">
-                <div class="flex items-center gap-4 text-white">
-                    <div class="text-accent-gold">
-                        <img src="logo.png" class="h-12"/>
-                    </div>
-                    <div class="leading-tight">
-                        <h2 class="text-lg md:text-xl font-bold tracking-tight text-white uppercase">Visionary Digital</h2>
-                        <p class="text-[10px] tracking-[0.2em] text-accent-gold font-bold">INDONESIA</p>
-                    </div>
-                </div>
-
-                <p class="text-sm leading-relaxed max-w-sm">
-                    A premier digital consulting firm dedicated to engineering excellence and digital sovereignty for Indonesia's corporate landscape.
+</main>
+<footer class="bg-primary text-slate-400 pt-24 pb-12" id="contact">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
+<div class="lg:col-span-4 space-y-8">
+<div class="flex items-center gap-4 text-white">
+<div class="text-accent-gold">
+<img src="logo.png"/>
+</div>
+<div class="leading-tight">
+<h2 class="text-xl font-bold tracking-tight text-white uppercase">Visionary Digital</h2>
+<p class="text-[10px] tracking-[0.2em] text-accent-gold font-bold">INDONESIA</p>
+</div>
+</div>
+<p class="text-sm leading-relaxed max-w-sm">
+                    A premier digital consulting firm dedicated to the engineering excellence and digital sovereignty of the Indonesian corporate landscape.
                 </p>
-
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
-                        <span class="material-symbols-outlined text-sm">public</span>
-                    </a>
-                    <a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
-                        <span class="material-symbols-outlined text-sm">mail</span>
-                    </a>
-                    <a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
-                        <span class="material-symbols-outlined text-sm">campaign</span>
-                    </a>
-                </div>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+<a class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">campaign</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">Corporate</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-accent-gold transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Our History</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Leadership</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Governance</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">Expertise</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-accent-gold transition-colors" href="#">Cloud Infrastructure</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Cybersecurity</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Legacy Modernization</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Data Governance</a></li>
+<li><a class="hover:text-accent-gold transition-colors" href="#">Custom ERP</a></li>
+</ul>
+</div>
+<div class="lg:col-span-4 space-y-8">
+<h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">Regional Office</h4>
+<div class="space-y-6 text-sm">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent-gold">location_on</span>
+<p>Sidomulyo Sp.2 Blok B.t<br/>Musi rawas<br/>Sumatra Selatan 31666, Indonesia</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent-gold">call</span>
+<p>+62 21 555 0123</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent-gold">verified</span>
+<div>
+<p class="font-bold text-slate-300">NIB: 1209250021561</p>
+<p class="font-bold text-slate-300">AHU: 049714.AH.01.30.2025</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 pt-12">
+<div class="grid md:grid-cols-2 gap-8 items-center text-[10px] font-bold uppercase tracking-widest text-slate-500">
+<p>© 2025 PT Visionary Digital Indonesia. All rights reserved.</p>
+<div class="flex md:justify-end gap-12">
+<a class="hover:text-accent-gold transition-colors" href="#">Privacy &amp; Cookie Policy</a>
+<a class="hover:text-accent-gold transition-colors" href="#">Terms of Engagement</a>
+<a class="hover:text-accent-gold transition-colors" href="#">Whistleblowing System</a>
+</div>
+</div>
+<div class="mt-8 text-[9px] text-slate-600 leading-relaxed font-light">
+                Disclaimer: PT Visionary Digital Indonesia is a legally incorporated entity in the Republic of Indonesia. All technology solutions and advisory services are provided in accordance with prevailing local regulations and international industry standards. Images used are for illustrative purposes and reflect the corporate standard of excellence maintained by our firm.
             </div>
-
-            <div class="lg:col-span-2">
-                <h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">Corporate</h4>
-                <ul class="space-y-3 text-sm">
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Home</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Our History</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Leadership</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Governance</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Careers</a></li>
-                </ul>
-            </div>
-
-            <div class="lg:col-span-2">
-                <h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">Expertise</h4>
-                <ul class="space-y-3 text-sm">
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Cloud Infrastructure</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Cybersecurity</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Legacy Modernization</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Data Governance</a></li>
-                    <li><a class="hover:text-accent-gold transition-colors" href="#">Custom ERP</a></li>
-                </ul>
-            </div>
-
-            <div class="lg:col-span-4 space-y-6 md:space-y-8">
-                <h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">Regional Office</h4>
-
-                <div class="space-y-5 text-sm">
-
-                    <div class="flex gap-4">
-                        <span class="material-symbols-outlined text-accent-gold">location_on</span>
-                        <p>Sidomulyo Sp.2 Blok B.t<br/>Musi Rawas<br/>Sumatra Selatan 31666, Indonesia</p>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <span class="material-symbols-outlined text-accent-gold">call</span>
-                        <p>+62 21 555 0123</p>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <span class="material-symbols-outlined text-accent-gold">verified</span>
-                        <div>
-                            <p class="font-bold text-slate-300">NIB: 1209250021561</p>
-                            <p class="font-bold text-slate-300">AHU: 049714.AH.01.30.2025</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="border-t border-white/5 pt-12">
-            <div class="grid md:grid-cols-2 gap-6 items-center text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                <p>© 2025 Visionary Digital Indonesia. All rights reserved.</p>
-
-                <div class="flex md:justify-end gap-8">
-                    <a class="hover:text-accent-gold transition-colors" href="#">Privacy Policy</a>
-                    <a class="hover:text-accent-gold transition-colors" href="#">Terms</a>
-                    <a class="hover:text-accent-gold transition-colors" href="#">Whistleblowing</a>
-                </div>
-            </div>
-
-            <div class="mt-8 text-[9px] text-slate-600 leading-relaxed font-light">
-                Disclaimer: Visionary Digital Indonesia is a legally incorporated entity in the Republic of Indonesia. 
-                All technology solutions and advisory services comply with local regulations and international standards. 
-                Images used are for illustrative purposes reflecting our corporate standard of excellence.
-            </div>
-        </div>
-    </div>
+</div>
+</div>
 </footer>
 
-</body>
-</html>
+</body></html>
